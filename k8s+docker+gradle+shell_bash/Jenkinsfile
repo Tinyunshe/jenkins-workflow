@@ -94,12 +94,6 @@ stages {
                 }
             }
         }
-        steps {
-            echo "构建项目"
-            sh 'gradle  -x test clean build'
-            sh '/bin/cp -f build/libs/* /${DOCKER_SITE}/${JOB_NAME}'
-            //从workspace目录拷贝打包后的程序文件到jenkins操作docker的工作目录
-        }
     }
 
     stage ("发布至Kubernetes") {
