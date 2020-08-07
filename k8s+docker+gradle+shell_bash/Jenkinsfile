@@ -29,9 +29,9 @@ environment {
     TYPE = "${params.TYPE}"
 
     //获取代码相关环境变量
-    CODE_NAME = "API"
+    CODE_NAME = "HUAWEI_MUSIC_ORDER"
     GITLAB_CRE = "gitlab.dfsjfm.com"
-    GITLAB_URL = "http://gitlab.dfsjfm.com/alex/HUAWEI_MUSIC_${CODE_NAME}_V1.git"
+    GITLAB_URL = "http://gitlab.dfsjfm.com/alex/${CODE_NAME}.git"
 
     //生成Docker Image推送至Docker Registry相关环境变量
     TIME_STAMP = GenerateTimestamp()
@@ -51,7 +51,7 @@ tools {
 }
 
 stages {
-
+    
     stage('获取代码') {
         when {
             allOf{
@@ -94,7 +94,6 @@ stages {
                 }
             }
         }
-    }
 
     stage ("发布至Kubernetes") {
         when {
