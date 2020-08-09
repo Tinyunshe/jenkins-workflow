@@ -2,7 +2,7 @@
 
 `environment {CODE_NAME} `
 
-修改Git repo名字，拉取不同分支，不同repo的代码，以区分项目程序的发布
+修改Git repo名字，拉取不同repo的代码，以区分项目程序
 
 ## 使用注意事项
 `environment {DOCKER_SITE} `

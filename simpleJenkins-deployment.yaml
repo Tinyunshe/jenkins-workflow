@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-master
+  labels:
+    service.mulit/run: jenkins-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service.mulit/run: jenkins-master
+  template:
+    metadata:
+      labels:
+        service.mulit/run: jenkins-master
+    spec:
+      securityContext:
+        supplementalGroups:
+        - 994
+      restartPolicy: Always
+      containers:
+      - name: jenkins-master
+        image: jenkinsci/blueocean
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: JAVA_OPTS
+          value: "-Duser.timezone=Asia/Shanghai"
+        ports:
+        - containerPort: 8080 
+        - containerPort: 50000
+        volumeMounts:
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+        volumeMounts:
+        - name: jenkins-dockersite
+          mountPath: /jenkins_dockersite
+        volumeMounts:
+        - name: localtime
+          mountPath: /etc/localtime
+        volumeMounts:
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+      volumes:
+      - name: jenkins-home
+        hostPath:
+          path: /data/server/jenkins/docker_volume
+      - name: jenkins-dockersite
+        hostPath:
+          path: /data/server/jenkins/jenkins_dockersite
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock

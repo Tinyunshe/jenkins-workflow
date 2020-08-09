@@ -1,8 +1,11 @@
-### 保存工作中制定过的DevOps流程
+# 保存工作中制定过的Pipline交付流程
 
-包括用到的文件
+## 包括用到的文件
 
-python scripts
+Python scripts
+
 Jenkinsfile
-shell bash
+
+Shell bash
+
 and more..
