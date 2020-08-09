@@ -1,16 +1,16 @@
 pipeline {
 	parameters {
-		choice choices: ['kting', 'trunk', 'backup'], description: '选择部署环境 ', name: 'deploy_env'
-		choice choices: ['NewApp', 'trunk'], description: '选择分支', name: 'deploy_branch'
+		choice choices: ['thrid-system', 'online-system', 'test-system'], description: '选择部署环境 ', name: 'deploy_env'
+		choice choices: ['master', 'trunk'], description: '选择分支', name: 'deploy_branch'
 	}
 	
 	environment {
-		project_name = "${params.deploy_branch}"
-		project_type = "order"
-		project_env = "${params.deploy_env}"
-		credId = "4ed64b8b-17d5-4800-b20b-4e2873c95d3b"
-		gitlab_url = "http://gitlab.kting.cn/alex/HUAWEI_MUSIC_ORDER.git"
-		scripts_dir = "/data/server/jenkins/scripts_build"
+		PROJECT_NAME = "${params.deploy_branch}"
+		PROJECT_TYPE = "order"
+		PROJECT_ENV = "${params.deploy_env}"
+		GITLAB_CRE = "id-name"
+		GITLAB_URL = "http://gitlab.example.cn/Boo.git"
+		SCRIPTS_DIR = "/data/server/jenkins/scripts_build"
 	}
 	
 	agent { label "${params.deploy_env}" }
@@ -31,7 +31,7 @@ pipeline {
         stage('获取代码') {
             steps {
                 echo "获取代码"
-				git branch: "${project_name}", credentialsId: "${credId}", url: "${gitlab_url}"
+				git branch: "${PROJECT_NAME}", credentialsId: "${GITLAB_CRE}", url: "${GITLAB_URL}"
             }
         }
 
@@ -46,12 +46,12 @@ pipeline {
 			parallel {
 				stage('分发部署') {
 					steps {
-					sh '${scripts_dir}/salt_deploy.sh ${project_type} ${project_env}'
+					sh '${SCRIPTS_DIR}/salt_deploy.sh ${PROJECT_TYPE} ${PROJECT_ENV}'
 					}
 				}
 				stage('检查日志') {
 					steps {
-					sh '${scripts_dir}/checklog.sh ${project_type} ${project_env}'
+					sh '${SCRIPTS_DIR}/checklog.sh ${PROJECT_TYPE} ${PROJECT_ENV}'
 					}
 				}
 			}

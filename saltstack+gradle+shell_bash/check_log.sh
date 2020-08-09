@@ -6,29 +6,29 @@ BuildCom=$2
 
 # ssh server check log
 # exit requird is 0, else jenkins build respond code is failed
-function __kting {
+function _kting {
     ssh kting-${BuildEnv}1 timeout 80s tail -f /data/logs/micro_service/${BuildEnv}/${BuildEnv}.log
 }
 
-function __trunk {
+function _trunk {
     ssh kting-dev timeout 80s tail -f /data/logs/micro_service/${BuildEnv}/${BuildEnv}.log
 }
 
-function __man {
+function _man {
     echo "Usage: check_log [build service type] [build service env]"
 }
 
 case $BuildCom in 
     kting)
-    __kting
+    _kting
     ;;
     trunk)
-    __trunk
+    _trunk
     ;;
     backup)
     ;;
     *)
-    __man
+    _man
 esac
 
 exit 0

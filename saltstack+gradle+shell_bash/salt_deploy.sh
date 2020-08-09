@@ -7,7 +7,7 @@ BuildCom=$2
 SaltDir=/data/salt
 
 # BuildCom kting env
-function __kting {
+function _kting {
     if [ ! -e $SaltDir/jar ];then mkdir -p $SaltDir/jar;fi
     rm -f $SaltDir/jar/*
     cp -f build/libs/*.jar $SaltDir/jar
@@ -22,7 +22,7 @@ function __kting {
 }
 
 # BuildCom trunk env
-function __trunk {
+function _trunk {
     if [ ! -e $SaltDir/jar ];then mkdir -p $SaltDir/jar;fi
     rm -f $SaltDir/jar/*
     cp -f build/libs/*.jar $SaltDir/jar
@@ -37,21 +37,21 @@ function __trunk {
 }
 
 # use man
-function __man {
+function _man {
     echo "Usage: salt_deploy [build service type] [build service env]"
 }
 
 case $BuildCom in
     kting)
-    __kting
+    _kting
     ;;
     trunk)
-    __trunk
+    _trunk
     ;;
     backup)
-    __backup
+    _backup
     ;;
     *)
-    __man
+    _man
     ;;
 esac
