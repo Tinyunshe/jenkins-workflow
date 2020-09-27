@@ -1,12 +1,12 @@
 ## 全局配置
 ### 配置kubernetes cloud
 
-### 配置与kube-apiserver通讯地址
+#### 配置与kube-apiserver通讯地址
 如果jenkins master托管在kubernetes集群并且pod挂载了service account，那么配置为 `https://kubernetes.default.svc.cluster.local`，测试连通性无须填写认证，pod拿sa与kube-apiserver通讯
 
 如果jenkins master部署在外部，配置为kube-apiserver VIP地址并提供鉴权信息
 
-### 配置Jenkins slave与Jenkins slave的通讯地址
+#### 配置Jenkins slave与Jenkins slave的通讯地址
 jenkins通讯地址：如果jenkins master托管在kubernetes集群，配置为 `https://jenkins.jenkins-namespace.svc.cluster.local:8080`
 
 jenkins通道：配置slave pod与jenkins master通讯地址，默认在当前namespace svc中5000端口通讯
