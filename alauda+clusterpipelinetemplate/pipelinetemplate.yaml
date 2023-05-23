@@ -1,0 +1,271 @@
+apiVersion: devops.alauda.io/v1alpha1
+kind: ClusterPipelineTemplate
+metadata:
+  name: FTPTest
+  namespace: default
+  annotations:
+    alauda.io/displayName.zh-CN: FTP测试
+    alauda.io/displayName.en: FTP Test
+    alauda.io/description.zh-CN: FTP下载
+    alauda.io/description.en: FTP
+    alauda.io/version: 1.2.6
+    alauda.io/style.icon:
+  labels:
+    category: Build
+spec:
+  agent:
+    label: base
+  # arguments:
+  # - displayName:
+  #     en: FTP Test
+  #     zh-CN: FTP测试
+  #   items:
+  #   - binding:
+  #     - FTPTest.args.FTPServer
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: 10.20.1.100:21 e.g，开发者名称填邮件名称，如 john@example.com 则填 john，支持逗号(,)分隔。
+  #       name:
+  #         en: FTP Server
+  #         zh-CN: FTP Server
+  #       type: string
+  #     name: FTPServer
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.username
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: 请填写FTP用户名
+  #       name:
+  #         en: username
+  #         zh-CN: 用户名
+  #       type: string
+  #     name: username
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.password
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: 请填写FTP密码
+  #       name:
+  #         en: password
+  #         zh-CN: 密码
+  #       type: string
+  #     name: password
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.addresses
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: /var/etc/filename.ext .e.g
+  #       name:
+  #         en: resource addresses
+  #         zh-CN: 资源路径
+  #       type: string
+  #     name: addresses
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.qa
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: qa
+  #       name:
+  #         en: qa
+  #         zh-CN: qa
+  #       type: string
+  #     name: qa
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.ops
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: ops
+  #       name:
+  #         en: ops
+  #         zh-CN: ops
+  #       type: string
+  #     name: ops
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.deploy
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: deploy
+  #       name:
+  #         en: deploy
+  #         zh-CN: deploy
+  #       type: string
+  #     name: deploy
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.ait
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: ait
+  #       name:
+  #         en: ait
+  #         zh-CN: ait
+  #       type: string
+  #     name: ait
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest.args.doc
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: doc
+  #       name:
+  #         en: doc
+  #         zh-CN: doc
+  #       type: string
+  #     name: doc
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  #   - binding:
+  #     - FTPTest2.args.devops
+  #     default: ""
+  #     display:
+  #       description:
+  #         zh-CN: devops
+  #       name:
+  #         en: devops
+  #         zh-CN: devops
+  #       type: string
+  #     name: devops
+  #     required: true
+  #     schema:
+  #       type: string
+  #     value: ""
+  engine: graph
+  options:
+    raw: 'buildDiscarder(logRotator(numToKeepStr: ''200''))'
+    timeout: 0
+  stages:
+  - display: {}
+    name: FTPTest
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: FTPTest
+  - display: {}
+    name: qa2
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa2
+  - display: {}
+    name: qa3
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa3
+  - display: {}
+    name: qa4
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa4
+  - display: {}
+    name: qa5
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa5
+  - display: {}
+    name: qa6
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa6
+  - display: {}
+    name: qa7
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa7
+  - display: {}
+    name: qa8
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa8
+  - display: {}
+    name: qa9
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa9
+  - display: {}
+    name: qa10
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa10
+  - display: {}
+    name: qa11
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa11
+  - display: {}
+    name: qa12
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa12
+  - display: {}
+    name: qa13
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa13
+  - display: {}
+    name: qa14
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa14
+  - display: {}
+    name: qa15
+    tasks:
+    - display: {}
+      kind: ClusterPipelineTaskTemplate
+      name: qa15
+  supportedTriggers:
+  - type: cron
+  - type: codeChange
+  - type: codeTrigger

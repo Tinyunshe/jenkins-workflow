@@ -1,0 +1,320 @@
+kind: ClusterPipelineTaskTemplate
+metadata:
+  name: qa5
+  annotations:
+    alauda.io/displayName.zh-CN: FTP 测试
+    alauda.io/displayName.en: FTP Test
+    alauda.io/description.zh-CN: FTP 测试
+    alauda.io/description.en: FTP Test
+    alauda.io/readme.zh-CN: FTP 测试
+    alauda.io/readme.en: FTP Test
+    alauda.io/version: 2.0.2
+    alauda.io/style.icon:
+  labels:
+    category: Test
+spec:
+  engine: gotpl
+  body: |+
+    script {
+          def ftp_server = "{{.FTPServer}}"
+          def username = "{{.username}}"
+          def password = "{{.password}}"
+          def addresses = "{{.addresses}}"
+          def qa = "{{.qa}}"
+          def ops = "{{.ops}}"
+          def deploy = "{{.deploy}}"
+          def doc = "{{.doc}}"
+          def devops= "{{.devops}}"
+          def ait = "{{.ait}}"
+                                  // 定义一个数组，存储一些数字
+                        def numbers = [3, 5, 8, 10, 15, 23, 28, 31, 38, 40]
+
+                        // 定义一个变量，用于存储数字之和
+                        def sum = 0
+
+                        // 使用 for 循环计算数字之和
+                        for (def i = 0; i < numbers.size(); i++) {
+                            if (numbers[i] % 2 == 0) {
+                                // 如果数字是偶数，将其加到 sum 中
+                                sum += numbers[i]
+                            } else {
+                                // 如果数字是奇数，将其乘以 2 后再加到 sum 中
+                                sum += numbers[i] * 2
+                            }
+                        }
+
+                        // 判断数字之和是否大于 50
+                        if (sum > 50) {
+                            // 如果大于 50，输出数字之和和数字个数
+                            println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        } else {
+                            // 如果小于等于 50，输出数字之和以下是一个 Groovy 程序示例，其中定义了至少10个变量，包含多个逻辑判断和循环，共计约 140 行代码：
+                            println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        }
+
+                        // 定义一个数组，存储一些数字
+                        def numbersa = [3, 5, 8, 10, 15, 23, 28, 31, 38, 40]
+
+                        // 定义一个变量，用于存储数字之和
+                        def suma = 0
+
+                        // 使用 for 循环计算数字之和
+                        for (def i = 0; i < numbersa.size(); i++) {
+                            if (numbersa[i] % 2 == 0) {
+                                // 如果数字是偶数，将其加到 sum 中
+                                suma += numbersa[i]
+                            } else {
+                                // 如果数字是奇数，将其乘以 2 后再加到 sum 中
+                                suma += numbersa[i] * 2
+                            }
+                        }
+
+                        // 判断数字之和是否大于 50
+                        if (suma > 50) {
+                            // 如果大于 50，输出数字之和和数字个数
+                            println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        } else {
+                            // 如果小于等于 50，输出数字之和以下是一个 Groovy 程序示例，其中定义了至少10个变量，包含多个逻辑判断和循环，共计约 140 行代码：
+                        println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        }
+
+                        // 定义一个列表，存储一些字符串
+                        def strings = ["apple", "banana", "cherry", "orange", "pear", "grape", "kiwi", "mango", "pineapple", "watermelon"]
+
+                        // 定义一个变量，用于存储字符串长度之和
+                        def lengthSum = 0
+
+                        // 使用 for 循环计算字符串长度之和
+                        for (def i = 0; i < strings.size(); i++) {
+                            lengthSum += strings[i].length()
+                        }
+
+                        // 判断字符串长度之和是否大于 50
+                        if (lengthSum > 50) {
+                            // 如果大于 50，输出字符串长度之和和字符串个数
+                            println "字符串长度之和为 ${lengthSum}，共有 ${strings.size()} 个字符串。"
+                        } else {
+                            // 如果小于等于 50，输出字符串长度之和和字符串平均长度
+                            println "字符串长度之和为 ${lengthSum}，平均长度为 ${lengthSum / strings.size()}。"
+                        }
+
+                        // 定义一个变量，用于存储字符串中元音以下是一个 Groovy 程序示例，其中定义了至少10个变量，包含多个逻辑判断和循环，共计约 140 行代码：
+
+                        // 定义一个数组，存储一些数字
+                        def numbersb = [3, 5, 8, 10, 15, 23, 28, 31, 38, 40]
+
+                        // 定义一个变量，用于存储数字之和
+                        def sumb = 0
+
+                        // 使用 for 循环计算数字之和
+                        for (def i = 0; i < numbersb.size(); i++) {
+                            if (numbersb[i] % 2 == 0) {
+                                // 如果数字是偶数，将其加到 sum 中
+                                sumb += numbersb[i]
+                            } else {
+                                // 如果数字是奇数，将其乘以 2 后再加到 sum 中
+                                sumb += numbersb[i] * 2
+                            }
+                        }
+
+                        // 判断数字之和是否大于 50
+                        if (sumb > 50) {
+                            // 如果大于 50，输出数字之和和数字个数
+                            println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        } else {
+                            // 如果小于等于 50，输出数字之和以下是一个 Groovy 程序示例，其中定义了至少10个变量，包含多个逻辑判断和循环，共计约 140 行代码：
+                        println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        }
+
+                        // 定义一个数组，存储一些数字
+                        def numbersc = [3, 5, 8, 10, 15, 23, 28, 31, 38, 40]
+
+                        // 定义一个变量，用于存储数字之和
+                        def sumc = 0
+
+                        // 使用 for 循环计算数字之和
+                        for (def i = 0; i < numbersc.size(); i++) {
+                            if (numbersc[i] % 2 == 0) {
+                                // 如果数字是偶数，将其加到 sum 中
+                                sumc += numbersc[i]
+                            } else {
+                                // 如果数字是奇数，将其乘以 2 后再加到 sum 中
+                                sumc += numbersc[i] * 2
+                            }
+                        }
+
+                        // 判断数字之和是否大于 50
+                        if (sumc > 50) {
+                            // 如果大于 50，输出数字之和和数字个数
+                            println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        } else {
+                            // 如果小于等于 50，输出数字之和为了避免重复，这里提供一份不同的 Groovy 示例程序，其中定义了至少 10 个变量，包含多个逻辑判断和循环，共计约 140 行代码：
+                            println "数字之和为 ${sum}，共有 ${numbers.size()} 个数字。"
+                        }
+
+                        def numbersd = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+                        def stringsa = ["apple", "banana", "cherry", "orange", "pear", "grape", "kiwi", "mango", "pineapple", "watermelon"]
+                        def vowels = ['a', 'e', 'i', 'o', 'u']
+                        def consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+                        def sumd = 0
+                        def product = 1
+                        def max = 0
+                        def min = 0
+                        def vowelCount = 0
+                        def consonantCount = 0
+
+                        for (def i = 0; i < numbersd.size(); i++) {
+                            if (numbersd[i] % 3 == 0) {
+                                sumd += numbersd[i]
+                            } else if (consonants[i] == "j") {
+                                product *= numbersd[i]
+                            } else {
+                                max = Math.max(max, numbersd[i])
+                                min = (i == 0) ? numbersd[i] : Math.min(min, numbersd[i])
+                            }
+                        }
+
+                        for (def i = 0; i < stringsa.size(); i++) {
+                            def currentString = stringsa[i]
+                            if (currentString.startsWith('a') || currentString.startsWith('e') || currentString.startsWith('i') || currentString.startsWith('o') || currentString.startsWith('u')) {
+                                vowelCount++
+                            } else {
+                                consonantCount++
+                            }
+                        }
+
+                        for (int i = 1; i <= 2100; i++) {
+                                echo "ALAUDAALAUDAALAUDAALAUDAALAUDA"
+                            }
+    }
+  arguments:
+    - name: "FTPServer"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "FTP Server"
+          en: "FTP Server"
+        description:
+          zh-CN: "FTP Server"
+          en: ""
+      required: false
+      default: 'FTPServer'
+    - name: "username"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "用户名"
+          en: "username"
+        description:
+          zh-CN: "请填写FTP用户名"
+          en: ""
+      required: false
+      default: 'username'
+    - name: "password"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "密码"
+          en: "password"
+        description:
+          zh-CN: "请填写FTP密码"
+          en: ""
+      required: false
+      default: 'password'
+    - name: "addresses"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "资源路径"
+          en: "resource addresses"
+        description:
+          zh-CN: "/var/etc/filename.ext .e.g"
+          en: ""
+      required: false
+      default: 'addresses'
+    - name: "qa"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "qa"
+          en: "qa"
+        description:
+          zh-CN: "qa"
+          en: ""
+      required: false
+      default: 'qa'
+    - name: "ops"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "ops"
+          en: "ops"
+        description:
+          zh-CN: "ops"
+          en: ""
+      required: false
+      default: 'ops'
+    - name: "deploy"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "deploy"
+          en: "deploy"
+        description:
+          zh-CN: "deploy"
+          en: ""
+      required: false
+      default: 'deploy'
+    - name: "doc"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "doc"
+          en: "doc"
+        description:
+          zh-CN: "doc"
+          en: ""
+      required: false
+      default: 'doc'
+    - name: "devops"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "devops"
+          en: "devops"
+        description:
+          zh-CN: "devops"
+          en: ""
+      required: false
+      default: 'devops'
+    - name: "ait"
+      schema:
+        type: string
+      display:
+        type: string
+        name:
+          zh-CN: "ait"
+          en: "ait"
+        description:
+          zh-CN: "ait"
+          en: ""
+      required: false
+      default: 'ait'
