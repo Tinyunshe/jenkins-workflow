@@ -1,0 +1,3 @@
+定义ClusterPipelineTaskTemplate，抽象为 stage 阶段概念
+
+之后定义定义ClusterPipelineTemplate，引用不同的ClusterPipelineTaskTemplate（不同的stage），最终拼接成为完整的jenkinsfile
